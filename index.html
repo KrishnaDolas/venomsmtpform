@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--https://www.youtube.com/watch?v=sGQSz22U8VM-->
+    <!--https://www.youtube.com/watch?v=MV-Aqkjju64-->
+    <div class="container">
+        <form onsubmit="sendemail(); reset(); return false;">
+        <h3>Contact Form</h3>
+        <input type="text" name="firstname" id="firstname" placeholder="Type Full Name" required>
+        <input type="email" name="email" id="email" placeholder="Type your email"required>
+        <input type="phone" name="phone" id="phone" placeholder="Type Full phone number"required>
+        <input type="text" name="message" id="message" placeholder="Type your message">
+        <button type="submit">send</button><br>
+        </form>
+    </div>
+    <script>
+        function sendemail(){
+    Email.send({
+        SecureToken : "39a1c793-d5b7-4a3f-a79c-201c036677b6",
+        To : 'kdolas99@gmail.com',
+        From : "dolas8085@gmail.com",
+        Subject : "This is the test",
+        Body :"firstname" + document.getElementById("firstname").value 
+        + "<br> email" + document.getElementById("email").value 
+        + "<br> phone" + document.getElementById("phone").value 
+        + "<br> message" + document.getElementById("message").value 
+        //document.querySelectorAll('#firstname, #email, #phone, #message').value,
+				//					         document.getElementById("message").value,
+				//					         document.getElementById("email").value,
+				//					          document.getElementById("phone").value,
+				//					         document.getElementById("message").value,
+    }).then(
+      message => alert(message)
+    );
+}
+    </script>
+</body>
+</html>
